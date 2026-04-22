@@ -1,0 +1,6 @@
+{
+  "name": "Excel Flow",
+  "description": "업로드한 엑셀 파일을 상품명별 시트로 자동 분할하고 정리해주는 스마트 엑셀 변환 도구입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
