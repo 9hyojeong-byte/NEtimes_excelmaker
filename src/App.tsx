@@ -13,6 +13,7 @@ import {
   History,
   LayoutDashboard,
   PlusCircle,
+  ArrowUpCircle,
   User,
   ClipboardPaste,
   Type
@@ -69,6 +70,17 @@ export default function App() {
 
   const applyIssueNumbers = () => {
     setProductIssueNumbers({ ...draftIssueNumbers });
+  };
+
+  const incrementAllIssueNumbers = () => {
+    setDraftIssueNumbers(prev => {
+      const next = { ...prev };
+      Object.keys(PRODUCT_NAME_MAPPINGS).forEach(key => {
+        const currentVal = parseInt(next[key] || '0');
+        next[key] = String(currentVal + 1);
+      });
+      return next;
+    });
   };
 
   const PRODUCT_NAME_MAPPINGS: {[key: string]: string} = {
@@ -587,7 +599,14 @@ export default function App() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-3 flex justify-end">
+                  <div className="mt-3 flex justify-end gap-2">
+                    <button
+                      onClick={incrementAllIssueNumbers}
+                      className="bg-white border border-[#CBD5E1] text-[#475569] hover:bg-[#F1F5F9] text-[11px] font-bold px-3 py-2 rounded shadow-sm transition-colors flex items-center gap-2"
+                    >
+                      <ArrowUpCircle size={13} className="text-[#3B82F6]" />
+                      호수 다같이 하나 올리기
+                    </button>
                     <button
                       onClick={() => {
                         applyIssueNumbers();
