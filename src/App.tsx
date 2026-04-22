@@ -302,8 +302,6 @@ export default function App() {
     setError(null);
     setActivePreviewTab(null);
     setManualText('');
-    setProductIssueNumbers({});
-    setDraftIssueNumbers({});
     setCustomSheetNames({});
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
